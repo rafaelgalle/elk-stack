@@ -1,0 +1,25 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /logs/*
+    fields_under_root: true
+    flush_interval: 1s
+    backoff: 1s
+    max_backoff: 5s
+output.logstash:
+ hosts: ["logstash:5044"]
+
+# Receber via stdin
+# filebeat.inputs:
+#   - type: stdin
+
+# Enviar para o logstash
+# output.logstash:
+#  hosts: ["localhost:5044"]
+
+# Enviar para o elastisearch
+# output.elasticsearch:
+#   hosts: ["localhost:9200"]
+#   username: "elastic"
+#   password: "minhasenhasupersegura"

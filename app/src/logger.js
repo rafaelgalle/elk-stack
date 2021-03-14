@@ -2,7 +2,7 @@ var fs = require('fs');
 var winston = require('winston')
 var ecsFormat = require('@elastic/ecs-winston-format')
 
-const base = '/alogs'
+const base = '/logs'
 
 const loggerInfo = winston.createLogger({
   format: ecsFormat(), 
