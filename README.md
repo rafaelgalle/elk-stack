@@ -12,7 +12,7 @@
 
 ✗ INSTALAR OUTROS TIPOS DE BEATS
 
-✗ FAZER README EXPLICANDO COMO INSTALAR/CONFIGURAR AS COISAS
+✓✗ FAZER README EXPLICANDO COMO INSTALAR/CONFIGURAR AS COISAS
 
 ✗ CONFIGURAR AMBIENTE PARA LIMITAR USO DE MEMÓRIA, ELK OCUPA MUITA MEMÓRIA.
 
@@ -26,3 +26,49 @@ https://www.elastic.co/guide/en/beats/libbeat/7.11/beats-reference.html
 
 Event listener log
 https://medium.com/dailyjs/how-to-prevent-your-node-js-process-from-crashing-5d40247b8ab2
+
+
+### Subir
+```
+docker-compose up --build
+```
+
+### Parar
+```
+docker-compose down -v
+```
+
+## Consultar devtools kibana
+```
+  // http://localhost:5601/app/dev_tools#/console
+
+  // Buscar indices existentes
+    GET /_cat/indices
+
+  // Verificar se os logs estão sendo gravados no nosso indice
+    GET /log-beats/_search
+    {
+      "query": {
+        "match_all": {}
+      }
+    }
+
+  // Deletar nosso indice
+    DELETE /log-beats*
+```
+
+
+## Visualizar logs em dashboard kibana 
+```
+  // Criar index pattern - Menu -> Stack Management -> Index Patterns
+    http://localhost:5601/app/management/kibana/indexPatterns
+    Index pattern name = log-beats*
+    timefield = @timestamp
+
+  // Importar painel kibana - Menu -> Stack Management -> Saved objects
+    http://localhost:5601/app/management/kibana/objects
+    Import -> Select a file to import "selecione o arquivo dashboard_kibana.ndjson presente neste repositório"
+
+  // Acessar painel de dashboards e selecionar painel importado
+    http://localhost:5601/app/dashboards#/
+```
