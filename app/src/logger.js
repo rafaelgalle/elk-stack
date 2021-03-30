@@ -1,39 +1,28 @@
-var fs = require('fs');
 var winston = require('winston')
 var ecsFormat = require('@elastic/ecs-winston-format')
 
-const base = '/logs'
+const base = './logs'
 
-const loggerInfo = winston.createLogger({
-  format: ecsFormat(), 
-  transports: [
-    new winston.transports.File({ filename: base + '/info.log', level: 'info' })
-  ]
-})
-
-const loggerError = winston.createLogger({
+const loggerWinston = winston.createLogger({
     format: ecsFormat(), 
     transports: [
-      new winston.transports.File({ filename: base + '/error.log', level: 'error' })
-    ]
-})
-
-const loggerWarning = winston.createLogger({
-    format: ecsFormat(), 
-    transports: [
-      new winston.transports.File({ filename: base + '/warning.log', level: 'warn' }),
+      new winston.transports.File({ filename: base + '/elk-stack.log', level: 'info' }),
     ]
 })
 
 class Logger {
-    info (message) {
-        loggerInfo.info(message)
+    info (message, data) {
+        loggerWinston.info(message, data)
     }
-    error (message) {
-        loggerError.error(message, { err: new Error('boom') })
+    error (message, data) {
+        loggerWinston.error(message, data)
+        // TODO - Send alert sms, email...
     }
-    warning (message) {
-        loggerWarning.warn(message)
+    warn (message, data) {
+        loggerWinston.warn(message, data)
+    }
+    debug (message, data) {
+        loggerWinston.debug(message, data)
     }
 }
 
