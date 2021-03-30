@@ -6,7 +6,9 @@ const base = './logs'
 const loggerWinston = winston.createLogger({
     format: ecsFormat(), 
     transports: [
-      new winston.transports.File({ filename: base + '/elk-stack.log', level: 'info' }),
+      new winston.transports.File({ filename: 'elk-stack-combined.log', level: 'info' }),
+      new winston.transports.File({ filename: 'elk-stack-error.log', level: 'error' }),
+      // new winston.transports.Console({ level: 'debug' }),
     ]
 })
 
@@ -22,6 +24,7 @@ class Logger {
         loggerWinston.warn(message, data)
     }
     debug (message, data) {
+        // if (process.env.NODE_ENV == 'production') return
         loggerWinston.debug(message, data)
     }
 }
