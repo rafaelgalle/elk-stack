@@ -1,0 +1,5 @@
+{"@timestamp":"2021-03-30T13:11:37.357Z","log.level":"info","message":"APP STARTED","ecs":{"version":"1.6.0"}}
+{"@timestamp":"2021-03-30T13:11:39.355Z","log.level":"info","message":"teste log","ecs":{"version":"1.6.0"},"teste":"log"}
+{"@timestamp":"2021-03-30T13:11:41.354Z","log.level":"warn","message":"teste warn","ecs":{"version":"1.6.0"},"teste":"warn"}
+{"@timestamp":"2021-03-30T13:11:47.354Z","log.level":"error","message":"teste error","ecs":{"version":"1.6.0"},"teste":"error"}
+{"@timestamp":"2021-03-30T13:11:50.760Z","log.level":"warn","message":"process received a SIGTERM signal","ecs":{"version":"1.6.0"}}

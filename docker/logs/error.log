@@ -1,0 +1,1 @@
+{"@timestamp":"2021-03-30T13:11:47.354Z","log.level":"error","message":"teste error","ecs":{"version":"1.6.0"},"teste":"error"}
