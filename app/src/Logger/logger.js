@@ -1,13 +1,13 @@
 var winston = require('winston')
 var ecsFormat = require('@elastic/ecs-winston-format')
 
-const base = './logs'
+const base = '/logs'
 
 const loggerWinston = winston.createLogger({
     format: ecsFormat(), 
     transports: [
-      new winston.transports.File({ filename: 'elk-stack-combined.log', level: 'info' }),
-      new winston.transports.File({ filename: 'elk-stack-error.log', level: 'error' }),
+      new winston.transports.File({ filename: base + '/info.log', level: 'info' }),
+      new winston.transports.File({ filename: base + '/error.log', level: 'error' }),
       // new winston.transports.Console({ level: 'debug' }),
     ]
 })
