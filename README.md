@@ -72,3 +72,15 @@ docker-compose down -v
   // Acessar painel de dashboards e selecionar painel importado
     http://localhost:5601/app/dashboards#/
 ```
+
+
+# Implementar futuramente...
+
+## Coleta com vários beats diferentes, log, métricas, pacotes...
+![image](https://user-images.githubusercontent.com/26337543/112995401-8f6b2e80-9141-11eb-9232-b00e6096d493.png)
+
+## Coleta com vários servidores/máquinas/serviços diferentes...
+![image](https://user-images.githubusercontent.com/26337543/112995417-95610f80-9141-11eb-87f4-9797c0ec4d08.png)
+
+## Uso de outros serviços para melhorar a estrutura...
+![image](https://user-images.githubusercontent.com/26337543/112995433-98f49680-9141-11eb-9072-628a9ac61dc2.png)
