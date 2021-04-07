@@ -1,6 +1,6 @@
-(function () {
-  const logger = require('./logger')
+import logger from './logger'
 
+(function () {
   const _log = console.log
   const _warn = console.warn
   const _info = console.info

@@ -1,7 +1,7 @@
-var winston = require('winston')
-var ecsFormat = require('@elastic/ecs-winston-format')
+import winston from 'winston'
+import ecsFormat from '@elastic/ecs-winston-format'
 
-const base = '/logs'
+const base = './logs'
 
 const loggerWinston = winston.createLogger({
     format: ecsFormat(), 
@@ -29,4 +29,4 @@ class Logger {
     }
 }
 
-module.exports = new Logger()
+export default new Logger()
